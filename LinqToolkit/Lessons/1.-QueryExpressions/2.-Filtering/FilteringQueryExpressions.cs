@@ -40,7 +40,7 @@ namespace LinqToolkit
         /// this example do the samen than SecondFilteringExample method but
         /// calling a function in the where clausule
         /// </summary>
-        public static void RetrieveEvenNumberGT5V3()
+        public static void ThirdFilteringExample()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             var evenNumbers = from i in myArray

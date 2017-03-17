@@ -11,7 +11,7 @@ namespace LinqToolkit
     {
         public static void PrintItemsInCollection(dynamic collection)
         {
-            foreach (int i in collection)
+            foreach (dynamic i in collection)
             {
                 Console.WriteLine(i);
             }
