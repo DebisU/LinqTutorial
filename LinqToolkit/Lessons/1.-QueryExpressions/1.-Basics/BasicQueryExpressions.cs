@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace LinqToolkit
 {
-    class BasicQueryExpressions
+    public class BasicQueryExpressions
     {
         /// <summary>
         /// example without LinQ
