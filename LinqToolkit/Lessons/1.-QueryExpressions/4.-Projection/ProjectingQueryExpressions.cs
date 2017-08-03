@@ -14,7 +14,7 @@ namespace LinqToolkit.Lessons._4._Projection
         /// </summary>
         public static void FirstProjectionExample()
         {
-            List<Person> people = ObjectFactory.GetListOfPersons();
+            List<Person> people = ObjectFactory.GetListOfPeople();
             var lastNames = from p in people
                             select p.LastName;
 
@@ -26,7 +26,7 @@ namespace LinqToolkit.Lessons._4._Projection
         /// </summary>
         public static void SecondProjectionExample()
         {
-            List<Person> people = ObjectFactory.GetListOfPersons();
+            List<Person> people = ObjectFactory.GetListOfPeople();
             var firstAndLastNames = from p in people
                             select new { p.FirstName, p.LastName };
 
@@ -41,7 +41,7 @@ namespace LinqToolkit.Lessons._4._Projection
         /// </summary>
         public static void ThirdProjectionExample()
         {
-            List<Person> people = ObjectFactory.GetListOfPersons();
+            List<Person> people = ObjectFactory.GetListOfPeople();
             var firstAndLastNames = from p in people
                                     select new {First = p.FirstName,Last = p.LastName };
 

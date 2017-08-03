@@ -46,6 +46,14 @@
     <Compile Include="Lessons\1.-QueryExpressions\5.-Joining\JoiningQueryExpressions.cs" />
     <Compile Include="Lessons\1.-QueryExpressions\6.-CompositeKeys\CompositeKeysQueryExpressions.cs" />
     <Compile Include="Lessons\1.-QueryExpressions\7.-Grouping\GroupingQueryExpressions.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\1.-Basics\BasicsMethodBasedQuerys.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\2.-FIltering\FilteringMethodBasedQuerys.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\3.-Ordering\OrderingMethodBasedQuerys.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\4.-Projection\ProjectionMethodBaseQuerys.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\5.-Joining\JoiningMethodBasedQuerys.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\6.-Grouping\GroupingMethodBasedQuerys.cs" />
+    <Compile Include="Lessons\2.-MethodBasedQuerys\7.-AgregateFunctions\AgreagateFunctionsMethodBaseQuerys.cs" />
+    <Compile Include="Lessons\3.-XML\LinqToXML.cs" />
     <Compile Include="models\Employee.cs" />
     <Compile Include="models\Employee2.cs" />
     <Compile Include="models\Hometown2.cs" />
@@ -63,8 +71,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lessons\2.-MethodBasedQuerys\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

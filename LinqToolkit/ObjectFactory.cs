@@ -1,16 +1,11 @@
 ﻿using LinqToolkit.models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LinqToolkit.Lessons._1._QueryExpressions._6._CompositeKeys;
 
 namespace LinqToolkit
 {
     public static class ObjectFactory
     {
-        public static List<Person> GetListOfPersons()
+        public static List<Person> GetListOfPeople()
         {
             return new List<Person>()
             {
