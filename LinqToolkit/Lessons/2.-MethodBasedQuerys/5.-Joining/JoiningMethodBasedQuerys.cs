@@ -1,4 +1,5 @@
 ﻿using LinqToolkit.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,23 +7,24 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
 {
     class JoiningMethodBasedQuerys
     {
-        public static void MethodBasedJoin()
+        public static IEnumerable<Object> MethodBasedJoin()
         {
             List<State> states = ObjectFactory.GetListOfStates();
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
 
-            var employeeByState = employees.Join(states,
+            IEnumerable<Object> employeeByState = employees.Join(states,
                                         e => e.StateId,
                                         s => s.StateId,
                                         (e, s) => new { e.LastName, s.StateName });
+            return employeeByState;
         }
 
-        public static void MethodBasedOuterJoin()
+        public static IEnumerable<Object> MethodBasedOuterJoin()
         {
             List<State> states = ObjectFactory.GetListOfStates();
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
 
-            var employeeByState = employees.GroupJoin(states,
+            IEnumerable<Object> employeeByState = employees.GroupJoin(states,
                                         e => e.StateId,
                                         s => s.StateId,
                                         (e, employeeGroup) => employeeGroup.Select(s => new
@@ -34,14 +36,15 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                                     LastName = e.LastName,
                                                     StateName = ""
                                                 })).SelectMany(employeeGroup => employeeGroup);
+            return employeeByState;
         }
 
-        public static void MethodBasedOuterJoinInto()
+        public static IEnumerable<Object> MethodBasedOuterJoinInto()
         {
             List<State> states = ObjectFactory.GetListOfStates();
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
 
-            var employeeByState = from e in employees
+            IEnumerable<Object> employeeByState = from e in employees
                                   join s in states
                                   on e.StateId equals s.StateId into employeeGroup  //<<<<< creating var employeeGroup and filling
                                   from item in employeeGroup.DefaultIfEmpty(new State
@@ -50,14 +53,15 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                       StateName = ""
                                   })
                                   select new { e.LastName, item.StateName };
+            return employeeByState;
         }
 
-        public static void MethodBasedGroupJoin()
+        public static IEnumerable<Object> MethodBasedGroupJoin()
         {
             List<State> states = ObjectFactory.GetListOfStates();
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
 
-            var employeeByState = employees.GroupJoin(states,
+            IEnumerable<Object> employeeByState = employees.GroupJoin(states,
                                     e => e.StateId,
                                     s => s.StateId,
                                     (e, employeeGroup) => employeeGroup.Select(s => new
@@ -69,18 +73,21 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                                 LastName = e.LastName,
                                                 StateName = ""
                                             })).SelectMany(e => e);
+            return employeeByState;
         }
 
-        public static void MethodBasedCompositeKeys()
+        public static IEnumerable<Object> MethodBasedCompositeKeys()
         {
             List<State> states = ObjectFactory.GetListOfStates();
             List<Hometown2> hometowns = ObjectFactory.GetListOfHomeTowns2();
             List<Employee2> employees = ObjectFactory.GetListOfEmployees2();
 
-            var employeeByState = employees.Join(hometowns,
+            IEnumerable<Object> employeeByState = employees.Join(hometowns,
                                     e => new { City = e.City, State = e.State },
                                     h => new { City = h.City, State = h.State },
                                         (e, h) => new { e.LastName, h.CityCode });
+
+            return employeeByState;
         }
 
 

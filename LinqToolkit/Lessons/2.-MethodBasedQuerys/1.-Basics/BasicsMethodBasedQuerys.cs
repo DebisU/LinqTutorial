@@ -8,18 +8,20 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._1._Basics
 {
     class BasicsMethodBasedQuerys
     {
-        public static void EvenNumbersWithQueryExpressions()
+        public static IEnumerable<int> EvenNumbersWithQueryExpressions()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var evenNumbers = from i in myArray
+            IEnumerable<int> evenNumbers = from i in myArray
                               where i % 2 == 0
                               select i;
+            return evenNumbers;
         }
 
-        public static void EvenNumbersWithMethodBasedQuerys()
+        public static IEnumerable<int> EvenNumbersWithMethodBasedQuerys()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var evenNumbers = myArray.Where(i => i % 2 == 0);
+            IEnumerable<int> evenNumbers = myArray.Where(i => i % 2 == 0);
+            return evenNumbers;
         }
     }
 }

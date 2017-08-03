@@ -1,26 +1,30 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace LinqToolkit.Lessons._2._MethodBasedQuerys.FIltering
 {
     class FilteringMethodBasedQuerys
     {
-        public static void FilterEvenNumbersAndGT5Way1()
+        public static IEnumerable<int> FilterEvenNumbersAndGT5Way1()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var filteredArray = myArray.Where(i => i % 2 == 0 && i > 5);
+            IEnumerable<int> filteredArray = myArray.Where(i => i % 2 == 0 && i > 5);
+            return filteredArray;
         }
 
-        public static void FilterEvenNumbersAndGT5Way2()
+        public static IEnumerable<int> FilterEvenNumbersAndGT5Way2()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var filteredArray = myArray.Where(i => i % 2 == 0)
-                                       .Where(i => i > 5);
+            IEnumerable<int> filteredArray = myArray.Where(i => i % 2 == 0)
+                                                    .Where(i => i > 5);
+            return filteredArray;
         }
 
-        public static void FilterEvenNumbersCallingMethod()
+        public static IEnumerable<int> FilterEvenNumbersCallingMethod()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var filteredArray = myArray.Where( i => IsEvenNumber(i) );
+            IEnumerable<int> filteredArray = myArray.Where( i => IsEvenNumber(i) );
+            return filteredArray;
         }
 
 

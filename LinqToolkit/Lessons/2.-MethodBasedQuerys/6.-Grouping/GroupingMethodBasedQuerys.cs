@@ -9,18 +9,22 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._6._Grouping
 {
     class GroupingMethodBasedQuerys
     {
-        public static void GroupingBy()
+        public static IEnumerable<Employee2> GroupingBy()
         {
             List<Employee2> employees = ObjectFactory.GetListOfEmployees2();
 
-            var employeesByState = employees.OrderBy(s => s.State);
+            IEnumerable<Employee2> employeesByState = employees.OrderBy(s => s.State);
+
+            return employeesByState;
         }
 
-        public static void GroupingBy2Fields()
+        public static IEnumerable<Employee2> GroupingBy2Fields()
         {
             List<Employee2> employees = ObjectFactory.GetListOfEmployees2();
 
-            var employeesByStateAndCity = employees.OrderBy(e => new { e.State, e.City });
+            IEnumerable<Employee2> employeesByStateAndCity = employees.OrderBy(e => new { e.State, e.City });
+
+            return employeesByStateAndCity;
         }
     }
 }

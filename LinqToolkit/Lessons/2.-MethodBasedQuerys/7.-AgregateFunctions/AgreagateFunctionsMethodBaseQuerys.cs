@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
 {
@@ -58,7 +56,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
             return last;
         }
 
-        public static void AgregateConcatenation()
+        public static List<Employee2> AgregateConcatenation()
         {
             List<Employee2> employees = ObjectFactory.GetListOfEmployees2();
             List<Employee2> employees2 = new List<Employee2>()
@@ -73,7 +71,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
                 }
             };
 
-            var mixedLists = employees.Concat(employees2);
+            List<Employee2> mixedLists = employees.Concat(employees2).ToList();
+
+            return mixedLists;
         }
 
         public static void AgregateMixedObjectConcatenation()
@@ -85,29 +85,32 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
                 Name = e.LastName}).Concat(people.Select(p => new { Name = p.LastName }));
         }
 
-        public static void AgregateSkip()
+        public static List<int> AgregateSkip()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var allNumbersExceptTheFirstOne = myArray.Skip(1); //this forces to skip the first value and take the rest
+            List<int> allNumbersExceptTheFirstOne = myArray.Skip(1).ToList(); //this forces to skip the first value and take the rest
+            return allNumbersExceptTheFirstOne;
         }
 
-        public static void AgregateTake()
+        public static List<int> AgregateTake()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var top2Numbers = myArray.Take(2); //this forces to take the first 2 values (top ones)
-
+            List<int> top2Numbers = myArray.Take(2).ToList(); //this forces to take the first 2 values (top ones)
+            return top2Numbers;
         }
 
-        public static void AgregateSkipTakeMix()
+        public static List<int> AgregateSkipTakeMix()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var numbersSkippingFirstAndTaking2 = myArray.Skip(1).Take(2); //this will skip the first number and take the following 2 numbers
+            List<int> numbersSkippingFirstAndTaking2 = myArray.Skip(1).Take(2).ToList(); //this will skip the first number and take the following 2 numbers
+            return numbersSkippingFirstAndTaking2;
         }
 
-        public static void AgregateDistinct()
+        public static List<int> AgregateDistinct()
         {
             int[] myArray = new int[19] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-            var myArrayWithoutDuplicates = myArray.Distinct(); //this will delete duplicates
+            List<int> myArrayWithoutDuplicates = myArray.Distinct().ToList(); //this will delete duplicates
+            return myArrayWithoutDuplicates;
         }
     }
 }

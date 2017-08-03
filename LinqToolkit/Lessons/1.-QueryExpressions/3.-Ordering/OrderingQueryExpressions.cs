@@ -9,14 +9,15 @@ namespace LinqToolkit
         /// <summary>
         /// this method pick the even numbers and order them descending
         /// </summary>
-        public static void FirstOrderingExample()
+        public static IEnumerable<int> FirstOrderingExample()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var evenNumbers = from i in myArray
+            IEnumerable<int> evenNumbers = from i in myArray
                               where i % 2 == 0
                               orderby i descending
                               select i;
             CommonOperations.PrintItemsInCollection(evenNumbers);
+            return evenNumbers;
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace LinqToolkit
         /// PAHavertown, PA
         /// Philadelphia, PA
         /// </summary>
-        public static void SecondOrderingExampleOrderingHometowns()
+        public static IEnumerable<Hometown> SecondOrderingExampleOrderingHometowns()
         {
             List<Hometown> hometowns = new List<Hometown>()
             {
@@ -39,10 +40,11 @@ namespace LinqToolkit
                 new Hometown() { City = "Trenton", State = "NJ" }
             };
 
-            var orderedHometowns = from h in hometowns
+            IEnumerable<Hometown> orderedHometowns = from h in hometowns
                                    orderby h.State ascending, h.City ascending
                                    select h;
             CommonOperations.PrintHomeTownCollection(orderedHometowns);
+            return orderedHometowns;
         }
     }
 }

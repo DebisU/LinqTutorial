@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -10,7 +11,7 @@ namespace LinqToolkit
         /// example without LinQ
         /// this example stores only the even numbers from array into evenNumbers array
         /// </summary>
-        public static void FirstExampleWithoutLinq()
+        public static int[] FirstExampleWithoutLinq()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int[] evenNumbers = new int[5];
@@ -23,20 +24,21 @@ namespace LinqToolkit
                 }
             }
             CommonOperations.PrintItemsInCollection(evenNumbers);
+            return evenNumbers;
         }
 
         /// <summary>
         /// example with LinQ
         /// this example stores only the even numbers from array into evenNumbers array
         /// </summary>
-        public static void FirstExampleWithLinq()
+        public static IEnumerable<int> FirstExampleWithLinq()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var evenNumbers = from i in myArray
+            IEnumerable<int> evenNumbers = from i in myArray
                               where i % 2 == 0
                               select i;
             CommonOperations.PrintItemsInCollection(evenNumbers);
-
+            return evenNumbers;
         }
 
         /// <summary>
@@ -44,10 +46,10 @@ namespace LinqToolkit
         /// after adding the even numbers to the array it changes the [1]
         /// position of the array to 12
         /// </summary>
-        public static void SecondExampleWithLinq()
+        public static IEnumerable<int> SecondExampleWithLinq()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var evenNumbers = 
+            IEnumerable<int> evenNumbers = 
                 from i in myArray
                 where i % 2 == 
                 0 select i;
@@ -55,6 +57,7 @@ namespace LinqToolkit
 
             myArray[1] = 12;
             CommonOperations.PrintItemsInCollection(evenNumbers);
+            return evenNumbers;
         }
 
         

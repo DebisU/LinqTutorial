@@ -3,40 +3,20 @@ using LinqToolkit.Lessons._1._QueryExpressions._7._Grouping;
 using LinqToolkit.Lessons._4._Projection;
 using LinqToolkit.Lessons._5._Joining;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LinqToolkit
+namespace LinqToolkit.Main.Sections
 {
-    class TryIt
+    class QueryExpressions
     {
-        static void Main(string[] args)
+        public static void RunQueryExpressions()
         {
-            Print("Testing all Linq utilities: ");
-            Print("Basics: ");
             Basics();
-            Print();
-            Print("Filtering: ");
             Filtering();
-            Print();
-            Print("Ordering: ");
-            Ordering();
-            Print();
-            Print("Projection: ");
-            Projection();
-            Print();
-            Print("Joining: ");
+            Ordering();     
+            Projection();        
             Joining();
-            Print();
-            Print("Composite keys: ");
             CompositeKeys();
-            Print();
-            Print("Grouping: ");
             Grouping();
-
-            Console.ReadLine();
         }
 
         private static void Basics()

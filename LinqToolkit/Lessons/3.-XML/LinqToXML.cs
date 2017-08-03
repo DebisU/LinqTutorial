@@ -10,12 +10,13 @@ namespace LinqToolkit.Lessons._3._XML
 {
     class LinqToXML
     {
-        public static void TransformLinqToXML()
+        public static XElement TransformLinqToXML()
         {
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
-            var xmlEmployees = new XElement("Root", from e in employees
+            XElement xmlEmployees = new XElement("Root", from e in employees
                                                     select new XElement("Employee", new XElement("FirstName", e.FirstName),
                                                     new XElement("LastName", e.LastName)));
+            return xmlEmployees;
         }
 
     }

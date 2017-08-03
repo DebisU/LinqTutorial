@@ -13,31 +13,32 @@ namespace LinqToolkit.Lessons._5._Joining
         /// this example joins employees with states with the relation
         /// between empployee.stateId and state.stateId
         /// </summary>
-        public static void FirstJoiningExample()
+        public static IEnumerable<Object> FirstJoiningExample()
         {
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
 
             List<State> states = ObjectFactory.GetListOfStates();
 
-            var employeeByState = from e in employees
+            IEnumerable<Object> employeeByState = from e in employees
                                   join s in states
                                   on e.StateId equals s.StateId
                                   select new { e.LastName, s.StateName };
 
             CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+            return employeeByState;
         }
 
 
         /// <summary>
         /// this ejample makes and outer join
         /// </summary>
-        public static void SecondJoiningExample()
+        public static IEnumerable<Object> SecondJoiningExample()
         {
             List<Employee> employees = ObjectFactory.GetListOfEmployees();
 
             List<State> states = ObjectFactory.GetListOfStates();
 
-            var employeeByState = from e in employees
+            IEnumerable<Object> employeeByState = from e in employees
                                   join s in states on e.StateId equals s.StateId into employeeGroup
                                   from item in employeeGroup.DefaultIfEmpty(new State
                                                                             {
@@ -47,6 +48,7 @@ namespace LinqToolkit.Lessons._5._Joining
                                   select new { e.LastName, item.StateName };
 
             CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+            return employeeByState;
         }
     }
 }

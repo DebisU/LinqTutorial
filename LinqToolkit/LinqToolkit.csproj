@@ -54,12 +54,15 @@
     <Compile Include="Lessons\2.-MethodBasedQuerys\6.-Grouping\GroupingMethodBasedQuerys.cs" />
     <Compile Include="Lessons\2.-MethodBasedQuerys\7.-AgregateFunctions\AgreagateFunctionsMethodBaseQuerys.cs" />
     <Compile Include="Lessons\3.-XML\LinqToXML.cs" />
+    <Compile Include="Main\Sections\MethodBasedQuerys.cs" />
+    <Compile Include="Main\Sections\QueryExpressions.cs" />
+    <Compile Include="Main\Sections\XML.cs" />
     <Compile Include="models\Employee.cs" />
     <Compile Include="models\Employee2.cs" />
     <Compile Include="models\Hometown2.cs" />
     <Compile Include="models\State.cs" />
     <Compile Include="ObjectFactory.cs" />
-    <Compile Include="TryIt.cs" />
+    <Compile Include="Main\TryIt.cs" />
     <Compile Include="Lessons\1.-QueryExpressions\2.-Filtering\FilteringQueryExpressions.cs" />
     <Compile Include="Lessons\1.-QueryExpressions\4.-Projection\ProjectingQueryExpressions.cs" />
     <Compile Include="models\Hometown.cs" />
