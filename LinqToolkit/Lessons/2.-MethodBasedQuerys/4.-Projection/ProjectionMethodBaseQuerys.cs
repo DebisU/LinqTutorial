@@ -11,6 +11,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys.Projection
         {
             List<Person> people = ObjectFactory.GetListOfPeople();
             IEnumerable<string> lastNames = people.Select(p => p.LastName);
+
+            CommonOperations.PrintItemsInCollection(lastNames);
+
             return lastNames;
         }
 
@@ -18,6 +21,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys.Projection
         {
             List<Person> people = ObjectFactory.GetListOfPeople();
             IEnumerable<Object> firstNameLastName = people.Select(p => new { p.FirstName, p.LastName });
+
+            CommonOperations.PrintItemsInCollection(firstNameLastName);
+
             return firstNameLastName;
         }
 
@@ -25,6 +31,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys.Projection
         {
             List<Person> people = ObjectFactory.GetListOfPeople();
             IEnumerable<Object> firstNameLastName = people.Select(p => new {First = p.FirstName, Last = p.LastName });
+
+            CommonOperations.PrintItemsInCollection(firstNameLastName);
+
             return firstNameLastName;
         }
 
@@ -35,6 +44,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys.Projection
 
             IEnumerable<Object> employeeByState = employees.SelectMany(e => states.Where(s =>
                 e.StateId == s.StateId).Select(s => new { e.LastName, s.StateName }));
+
+            CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+
             return employeeByState;
         }
     }

@@ -11,6 +11,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int count = myArray.Where(e => e % 2 == 0).Count();
+            Console.WriteLine(count);
             return count;
         }
 
@@ -18,6 +19,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             Double average = myArray.Where(e => e % 2 == 0).Average();
+            Console.WriteLine(average);
             return average;
         }
 
@@ -25,6 +27,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int sum = myArray.Where(e => e % 2 == 0).Sum();
+            Console.WriteLine(sum);
             return sum;
         }
 
@@ -32,6 +35,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int min = myArray.Where(e => e % 2 == 0).Min();
+            Console.WriteLine(min);
             return min;
         }
 
@@ -39,6 +43,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int max = myArray.Where(e => e % 2 == 0).Max();
+            Console.WriteLine(max);
             return max;
         }
 
@@ -46,6 +51,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int first = myArray.Where(e => e % 2 == 0).First(); //as well FirstOrDefault() if not sure if any
+            Console.WriteLine(first);
             return first;
         }
 
@@ -53,6 +59,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int last = myArray.Where(e => e % 2 == 0).Last(); //as well LastOrDefault() if not sure if any
+            Console.WriteLine(last);
             return last;
         }
 
@@ -72,7 +79,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
             };
 
             List<Employee2> mixedLists = employees.Concat(employees2).ToList();
-
+            CommonOperations.PrintEmployees2(mixedLists);
             return mixedLists;
         }
 
@@ -82,13 +89,14 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
             List<Person> people = ObjectFactory.GetListOfPeople();
 
             var combinedEmployees = employees.Select(e => new {
-                Name = e.LastName}).Concat(people.Select(p => new { Name = p.LastName }));
+                Name = e.LastName}).Concat(people.Select(p => new { Name = p.LastName })).ToList();
         }
 
         public static List<int> AgregateSkip()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             List<int> allNumbersExceptTheFirstOne = myArray.Skip(1).ToList(); //this forces to skip the first value and take the rest
+            CommonOperations.PrintItemsInCollection(allNumbersExceptTheFirstOne);
             return allNumbersExceptTheFirstOne;
         }
 
@@ -96,6 +104,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             List<int> top2Numbers = myArray.Take(2).ToList(); //this forces to take the first 2 values (top ones)
+            CommonOperations.PrintItemsInCollection(top2Numbers);
             return top2Numbers;
         }
 
@@ -103,6 +112,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             List<int> numbersSkippingFirstAndTaking2 = myArray.Skip(1).Take(2).ToList(); //this will skip the first number and take the following 2 numbers
+            CommonOperations.PrintItemsInCollection(numbersSkippingFirstAndTaking2);
             return numbersSkippingFirstAndTaking2;
         }
 
@@ -110,6 +120,7 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._7._AgregateFunctions
         {
             int[] myArray = new int[19] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 1, 1, 1, 1, 1, 1, 1};
             List<int> myArrayWithoutDuplicates = myArray.Distinct().ToList(); //this will delete duplicates
+            CommonOperations.PrintItemsInCollection(myArrayWithoutDuplicates);
             return myArrayWithoutDuplicates;
         }
     }

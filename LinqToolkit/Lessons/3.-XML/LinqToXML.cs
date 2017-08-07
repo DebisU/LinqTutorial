@@ -16,6 +16,7 @@ namespace LinqToolkit.Lessons._3._XML
             XElement xmlEmployees = new XElement("Root", from e in employees
                                                     select new XElement("Employee", new XElement("FirstName", e.FirstName),
                                                     new XElement("LastName", e.LastName)));
+            Console.WriteLine(xmlEmployees.ToString());
             return xmlEmployees;
         }
 

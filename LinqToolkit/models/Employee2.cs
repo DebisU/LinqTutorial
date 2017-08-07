@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinqToolkit.models
 {
-    class Employee2 : Employee
+    public class Employee2 : Employee
     {
         public string City { get; set; }
         public string State { get; set; }

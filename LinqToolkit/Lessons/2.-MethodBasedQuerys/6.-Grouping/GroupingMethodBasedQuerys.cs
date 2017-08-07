@@ -13,7 +13,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._6._Grouping
         {
             List<Employee2> employees = ObjectFactory.GetListOfEmployees2();
 
-            IEnumerable<Employee2> employeesByState = employees.OrderBy(s => s.State);
+            List<Employee2> employeesByState = employees.OrderBy(s => s.State).ToList();
+
+            CommonOperations.PrintEmployees2(employeesByState);
 
             return employeesByState;
         }
@@ -22,7 +24,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._6._Grouping
         {
             List<Employee2> employees = ObjectFactory.GetListOfEmployees2();
 
-            IEnumerable<Employee2> employeesByStateAndCity = employees.OrderBy(e => new { e.State, e.City });
+            var employeesByStateAndCity = employees.OrderBy(e => new { e.State, e.City });
+
+            //CommonOperations.PrintEmployees2(employeesByStateAndCity); implement iComparable to do this operation
 
             return employeesByStateAndCity;
         }

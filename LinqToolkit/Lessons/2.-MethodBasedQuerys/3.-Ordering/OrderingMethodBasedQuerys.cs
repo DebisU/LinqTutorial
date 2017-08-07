@@ -10,6 +10,10 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys.Ordering
         {
             List<Hometown2> hometowns =  ObjectFactory.GetListOfHomeTowns2();
             IEnumerable<Hometown2> orderedHometowns = hometowns.OrderBy(c => c.City).ThenBy(s => s.State);
+
+            CommonOperations.PrintHomeTownCollection(orderedHometowns);
+
+
             return orderedHometowns;
         }
 
@@ -17,6 +21,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys.Ordering
         {
             List<Hometown2> hometowns = ObjectFactory.GetListOfHomeTowns2();
             IEnumerable<Hometown2> orderedDescendingHometowns = hometowns.OrderByDescending(c => c.City).ThenByDescending(s => s.State);
+
+            CommonOperations.PrintHomeTownCollection(orderedDescendingHometowns);
+
             return orderedDescendingHometowns;
         }
     }

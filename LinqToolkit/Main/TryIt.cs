@@ -1,5 +1,6 @@
 ﻿using LinqToolkit.Lessons._1._QueryExpressions._6._CompositeKeys;
 using LinqToolkit.Lessons._1._QueryExpressions._7._Grouping;
+using LinqToolkit.Lessons._3._XML;
 using LinqToolkit.Lessons._4._Projection;
 using LinqToolkit.Lessons._5._Joining;
 using LinqToolkit.Main.Sections;
@@ -15,9 +16,20 @@ namespace LinqToolkit
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("QUERY EXPRESSIONS");
+            Console.WriteLine("---------------------------------------");
             RunQueryExpressions();
+
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("METHOD BASED QUERYS");
+            Console.WriteLine("---------------------------------------");
             RunMethodBasedQuerys();
-            RunLinqToJson();
+
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("LINQ TO XML");
+            Console.WriteLine("---------------------------------------");
+            RunLinqToXml();
         }
 
         private static void RunQueryExpressions()
@@ -34,8 +46,9 @@ namespace LinqToolkit
             Console.ReadLine();
         }
 
-        private static void RunLinqToJson()
+        private static void RunLinqToXml()
         {
+            LinqToXML.TransformLinqToXML();
             Console.WriteLine("press any key to finish.");
             Console.ReadLine();
         }

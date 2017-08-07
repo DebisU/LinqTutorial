@@ -36,10 +36,10 @@ namespace LinqToolkit.Lessons._1._QueryExpressions._7._Grouping
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             var groupedNumbers = from i in myArray
-                                 group i by (EvenOrOddNumber(i));
+                                 group i by (EvenOrOddNumber(i)).ToList();
             foreach (var groupNumber in groupedNumbers)
             {
-                Console.WriteLine(groupNumber.Key + ": " + groupNumber.Sum());
+                Console.WriteLine(groupNumber.ToString());
                 CommonOperations.PrintItemsInCollection(groupedNumbers);
             }
         }

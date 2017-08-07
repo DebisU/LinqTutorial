@@ -16,6 +16,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                         e => e.StateId,
                                         s => s.StateId,
                                         (e, s) => new { e.LastName, s.StateName });
+
+            CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+
             return employeeByState;
         }
 
@@ -36,6 +39,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                                     LastName = e.LastName,
                                                     StateName = ""
                                                 })).SelectMany(employeeGroup => employeeGroup);
+
+            CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+
             return employeeByState;
         }
 
@@ -53,6 +59,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                       StateName = ""
                                   })
                                   select new { e.LastName, item.StateName };
+
+            CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+
             return employeeByState;
         }
 
@@ -73,6 +82,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                                 LastName = e.LastName,
                                                 StateName = ""
                                             })).SelectMany(e => e);
+
+            CommonOperations.PrintEmployeeLastNameAndStateName(employeeByState);
+
             return employeeByState;
         }
 
@@ -86,6 +98,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._5._Joining
                                     e => new { City = e.City, State = e.State },
                                     h => new { City = h.City, State = h.State },
                                         (e, h) => new { e.LastName, h.CityCode });
+
+            CommonOperations.PrintEmployee2LastNameAndCityCode(employeeByState);
+
 
             return employeeByState;
         }

@@ -35,6 +35,22 @@ namespace LinqToolkit
             }
         }
 
+        public static void PrintEmployees(List<Employee2> employees)
+        {
+            foreach (var item in employees)
+            {
+                Console.WriteLine(item.FirstName + ", " + item.LastName+ ", " + item.StateId);
+            }
+        }
+
+        public static void PrintEmployees2(List<Employee2> employees)
+        {
+            foreach (var item in employees)
+            {
+                Console.WriteLine(item.FirstName + ", "+ item.LastName +", "+ item.State +", "+ item.City + ", "+ item.StateId );
+            }
+        }
+
 
         public static void PrintEmployee2LastNameAndCityCode(dynamic employees)
         {

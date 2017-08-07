@@ -14,6 +14,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._1._Basics
             IEnumerable<int> evenNumbers = from i in myArray
                               where i % 2 == 0
                               select i;
+
+            CommonOperations.PrintItemsInCollection(evenNumbers);
+
             return evenNumbers;
         }
 
@@ -21,6 +24,9 @@ namespace LinqToolkit.Lessons._2._MethodBasedQuerys._1._Basics
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             IEnumerable<int> evenNumbers = myArray.Where(i => i % 2 == 0);
+
+            CommonOperations.PrintItemsInCollection(evenNumbers);
+
             return evenNumbers;
         }
     }
