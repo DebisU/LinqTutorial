@@ -12,12 +12,12 @@ namespace LinqToolkit
         /// this example adds the even numbers greather than 5 to the evenNumbers array
         /// with a where and &&.
         /// </summary>
-        public static IEnumerable<int> FirstFilteringExample()
+        public static List<int> FirstFilteringExample()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            IEnumerable<int> evenNumbersGT5 = from i in myArray
+            List<int> evenNumbersGT5 = (from i in myArray
                               where i % 2 == 0 && i > 5
-                              select i;
+                              select i).ToList();
             CommonOperations.PrintItemsInCollection(evenNumbersGT5);
             return evenNumbersGT5;
         }
@@ -27,13 +27,13 @@ namespace LinqToolkit
         /// with two where statements.
         /// the result is equivalent to FirstFilteringExample method
         /// </summary>
-        public static IEnumerable<int> SecondFilteringExample()
+        public static List<int> SecondFilteringExample()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            IEnumerable<int> evenNumbersGT5 = from i in myArray
+            List<int> evenNumbersGT5 = (from i in myArray
                               where i % 2 == 0 
                               where i > 5
-                              select i;
+                              select i).ToList();
             CommonOperations.PrintItemsInCollection(evenNumbersGT5);
             return evenNumbersGT5;
         }
@@ -42,12 +42,12 @@ namespace LinqToolkit
         /// this example do the same than SecondFilteringExample method but
         /// calling a function in the where clausule
         /// </summary>
-        public static IEnumerable<int> ThirdFilteringExample()
+        public static List<int> ThirdFilteringExample()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            IEnumerable<int> evenNumbersGT5 = from i in myArray
+            List<int> evenNumbersGT5 = (from i in myArray
                               where IsEvenAndGT5(i)
-                              select i;
+                              select i).ToList();
             CommonOperations.PrintItemsInCollection(evenNumbersGT5);
             return evenNumbersGT5;
         }

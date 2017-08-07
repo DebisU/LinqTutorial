@@ -12,11 +12,11 @@ namespace LinqToolkit.Lessons._4._Projection
         /// <summary>
         /// this method generate a list<string> with the persons.LastName propery
         /// </summary>
-        public static IEnumerable<string> FirstProjectionExample()
+        public static List<string> FirstProjectionExample()
         {
             List<Person> people = ObjectFactory.GetListOfPeople();
-            IEnumerable<string> lastNames = from p in people
-                            select p.LastName;
+            List<string> lastNames = (from p in people
+                            select p.LastName).ToList();
 
             CommonOperations.PrintItemsInCollection(lastNames);
             return lastNames;

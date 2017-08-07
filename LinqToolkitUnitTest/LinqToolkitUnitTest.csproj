@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="QueryExpressionsTest\BasicsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryExpressionsTest\FilteringTest.cs" />
+    <Compile Include="QueryExpressionsTest\OrderingTest.cs" />
+    <Compile Include="QueryExpressionsTest\ProjectingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

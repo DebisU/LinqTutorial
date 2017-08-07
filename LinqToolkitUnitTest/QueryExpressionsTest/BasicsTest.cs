@@ -6,15 +6,33 @@ using System.Collections.Generic;
 namespace LinqToolkitUnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class BasicsTest
     {
         [TestMethod]
         public void FirstExampleWithoutLinqTest()
         {
-            IEnumerable<int> returnedValue = BasicQueryExpressions.FirstExampleWithLinq();
-            int[] expectedValue = new int[5] { 2, 4, 6, 8, 10 };
+            List<int> returnedValue = BasicQueryExpressions.FirstExampleWithLinq();
+            List<int> expectedValue = new List<int> { 2, 4, 6, 8, 10 };
 
-            Assert.AreEqual(expectedValue, returnedValue);
+            CollectionAssert.AreEqual(expectedValue, returnedValue);
+        }
+
+        [TestMethod]
+        public void FirstExampleWithLinqTest()
+        {
+            List<int> returnedValue = BasicQueryExpressions.FirstExampleWithLinq();
+            List<int> expectedValue = new List<int> { 2, 4, 6, 8, 10 };
+
+            CollectionAssert.AreEqual(expectedValue, returnedValue);
+        }
+
+        [TestMethod]
+        public void SecondExampleWithLinqTest()
+        {
+            List<int> returnedValue = BasicQueryExpressions.SecondExampleWithLinq();
+            List<int> expectedValue = new List<int> { 2, 4, 6, 8, 10 };
+
+            CollectionAssert.AreEqual(expectedValue, returnedValue);
         }
     }
 }

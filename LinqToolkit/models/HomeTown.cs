@@ -10,5 +10,11 @@ namespace LinqToolkit.models
     {
         public string City { get; set; }
         public string State { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            Hometown actual = obj as Hometown;
+            return actual.City.Equals(this.City) && actual.State.Equals(this.State);
+        }
     }
 }

@@ -31,12 +31,12 @@ namespace LinqToolkit
         /// example with LinQ
         /// this example stores only the even numbers from array into evenNumbers array
         /// </summary>
-        public static IEnumerable<int> FirstExampleWithLinq()
+        public static List<int> FirstExampleWithLinq()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            IEnumerable<int> evenNumbers = from i in myArray
+            List<int> evenNumbers = (from i in myArray
                               where i % 2 == 0
-                              select i;
+                              select i).ToList();
             CommonOperations.PrintItemsInCollection(evenNumbers);
             return evenNumbers;
         }
@@ -46,13 +46,13 @@ namespace LinqToolkit
         /// after adding the even numbers to the array it changes the [1]
         /// position of the array to 12
         /// </summary>
-        public static IEnumerable<int> SecondExampleWithLinq()
+        public static List<int> SecondExampleWithLinq()
         {
             int[] myArray = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            IEnumerable<int> evenNumbers = 
-                from i in myArray
+            List<int> evenNumbers = 
+                (from i in myArray
                 where i % 2 == 
-                0 select i;
+                0 select i).ToList();
             CommonOperations.PrintItemsInCollection(evenNumbers);
 
             myArray[1] = 12;
